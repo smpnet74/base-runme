@@ -20,7 +20,7 @@ Install GLOW https://github.com/charmbracelet/glow.  Glow is a terminal based ma
 sudo apt update && sudo apt install glow
 ```
 
-Script to modify the mods configuration file to default to the perplexity API and llam31-large model and set the API key
+Script to modify the mods configuration file to default to the perplexity API and llam31-large model and set the API key.  Before you execute this cell you need to run mods --settings so that the base configuration is written to disk.
 
 ```sh
 #!/bin/bash
@@ -39,7 +39,7 @@ cp "$CONFIG_FILE" "${CONFIG_FILE}.backup"
 
 # Perform the replacements
 if sed -i 's/^default-model: gpt-4o$/default-model: llam31-large/' "$CONFIG_FILE" && \
-   sed -i '/^  perplexity:/,/^    api-key:/{s/^    api-key:$/    api-key: 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/}' "$CONFIG_FILE"; then
+   sed -i '/^  perplexity:/,/^    api-key:/{s/^    api-key:$/    api-key: /}' "$CONFIG_FILE"; then
     echo "Successfully updated default model to perplexity and set API key"
     echo "Backup created at ${CONFIG_FILE}.backup"
 else
