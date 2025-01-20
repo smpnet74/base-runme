@@ -235,3 +235,11 @@ Install node18
 ```sh
 conda install -n starship nodejs=18 -c conda-forge -y
 ```
+
+Install K9s a great cli tool for managing kube clusters
+
+```sh
+conda install -n starship k9s=0.32.7 -c conda-forge -y
+```
+
+Add code for kubectx kubens stern kube-shell kustomize
